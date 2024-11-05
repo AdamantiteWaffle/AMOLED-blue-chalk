@@ -1,27 +1,28 @@
 /**
   * @name Amoled Blue Chalk
   * @author The Adamantite Waffle
-  * @version 1.0.1.7
+  * @version 1.1.2
   * @description Customizable, blue-chalk palatte AMOLED theme, meant to be easy on the eyes.
  */
 
 :root {
-  --waffle-bg: #000000;
-  --waffle-bg2: #302f2f;
-  --waffle-text: #90B0C4;
-  --waffle-alt-text: #7695a9;
-  --active-now-outer-border-color: #48677a;
-  --active-now-inner-border-color: #668699;
-  --active-now-hover-color: #928374;
-  --mentioned-color: rgba(54, 73, 85, 0.75);
-  --mentioned-hover: #2b4a5c;
-  --attatch-button-hover: #557da9;
-  --unread-color: #90B0C4;
-  --jump-to-present-color: #90B0C4;
-  --chatbox-color: #302F2F;
-  --dm-sidebar-color: #00000000;
-  --username-color: #6b8b9e;
-  --timestamp-color: #d2eae6;
+  --waffle-bg: #000000; /* Main AMOLED background color. Default is #00000000. */
+  --waffle-bg2: #302f2f; /* Controls the secondary background color, primarily used by the chatbox, but also for a few other things. */
+  --waffle-text: #90B0C4; /* Controls the color for text used in menus, on most items, and on a a large amount of other things, including the Discord logo color in the top left. */
+  --waffle-alt-text: #7695a9; /* Controls the alternate text color, primarily used by the text in servers, and in submenus. Default is #7695A9. */
+  --active-now-outer-border-color: #48677a; /* Controls what color the "Active Now" outer box is. Default is #48677A. */
+  --active-now-inner-border-color: #668699; /* Controls what color the "Active Now" inner box color is. Default is #668699. */
+  --active-now-hover-color: #928374; /* Controls what color the "Active now" boxes change to when you hover over them. Default is #928374. */
+  --mentioned-color: rgba(54, 73, 85, 0.75); /* Controls what the color of the bar that appears when someone mentions you or replies to you is. Default is rgba(54, 73, 85, 0.75) */
+  --mentioned-hover: #2b4a5c; /* Controls what the color of the bar that appears when someone mentions you or replies to you is, when you hover over it. Default is #2B4A5C. */
+  --attatch-button-hover: #557da9; /* Controls what color the "+" attatch button in the text field changes to when you hover over it. Default is #557DA9. */
+  --unread-color: #90B0C4; /* Controls the color for unread messages in text channels. Default is #90B0C4. */
+  --jump-to-present-color: #90B0C4; /* Controls the color of the "You're viewing older messages. Jump to Present" pill. Default is #90B0C4. */
+  --chatbox-color: #302F2F; /* Controls the color of the message box in chat. Default is #302F2F. */
+  --dm-sidebar-color: #00000000; /* Controls the color for a users' profile in DMs. Default is #00000000. */
+  --username-color: #6b8b9e; /* Controls the color of peoples' usernames. This will be overridden by roles which provide a color. Default is #6B8B9E. */
+  --timestamp-color: #d2eae6; /* Controls the color for the "Today at XX:XX" bit next to a username in chat. Default is #D2EAE6. */
+  --button-color: #90B0C4; /* Controls the color for the mute, deafen, settings, and "start an activity" button; the arrows on the left of a channel category, as well as the text inside of buttons in the settings menu. Default is #90B0C4. */
 }
 
 .bg_d4b6c5,
@@ -83,8 +84,8 @@
   border-radius: 15px;
 }
 .banner_d5fdb1 {
-  /* padding is listed as top, then right, then bottom, then left */
-  padding: 25px;
+  /* border radius' are listed as top left, then right, then bottom left, then right */
+  border-radius: 15px 15px 0px 0px;
 }
 .scroller_e2e187 {
   background-color: var(--waffle-bg);
@@ -172,11 +173,11 @@
   background-color: var(--waffle-text);
 }
 .container_b2ca13 .button_adca65:nth-child(1) .contents-3ca1mk path {
-  fill: var(--waffle-text);
+  fill: var(--button-color);
 }
 
 .container_b2ca13 .button_adca65:nth-child(2) .contents-3ca1mk path {
-  fill: var(--waffle-text);
+  fill: var(--button-color);
 }
 
 .container_b2ca13 .button_adca65:nth-child(3) .contents-3ca1mk path {
@@ -1588,7 +1589,7 @@ button[aria-label="Send a gift"] {
 }
 
 .button_dd4f85 .contents_dd4f85, .icon_a08117, .name_a08117 {
-  color: var(--waffle-text);
+  color: var(--button-color);
 }
 
 .button_df39bd {
@@ -1606,4 +1607,5 @@ button[aria-label="Send a gift"] {
   background-color: var(--waffle-bg);
   color: var(--waffle-alt-text);
 }
+.
 
