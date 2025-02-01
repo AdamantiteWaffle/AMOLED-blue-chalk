@@ -1,0 +1,333 @@
+/**
+  * @name Amoled Blue Chalk Revised
+  * @author The Adamantite Waffle
+  * @version 1.3.0
+  * @description Customizable, blue-chalk palatte AMOLED theme, meant to be easy on the eyes.
+  * Last updated on January 16, 2025.
+ */
+ :root {
+   --waffle-bg0: #000000; /* Main background color for most menus, areas, and general places in Discord. Default is #000000. */
+   --chatbox-color: #282828; /* Exactly what it sounds like. */
+   --background-secondary-alt: #000000;
+   --background-secondary: #000000;
+   --waffle-chalk: #90B0C4; /* Main blue color for the theme. */
+   --typing-indicator: #90B0C4; /* Exactly what it sounds like. */
+   --unread-pill: #364955; /* The "NEW" pill that appears in chat when there are new messages in chat. */
+   --unread-bar: #86759D; /* This is the actual bar that appears when there are new messages in chat. The line above it is for the section of said bar that contains the "NEW" text. */
+   --nmbar: #364955; /* This is the bar that says "<x> new messages since <some time>." */
+
+   [aria-label="Open GIF picker"] { /* Whether or not to hide the GIF picker. Use ctrl+g to open it otherwise. */
+     display: none;
+   }
+
+   [aria-label="Open sticker picker"] { /* Whether or not to hide the sticker picker. Use ctrl+s to open it otherwise. */
+     display: none;
+   }
+
+   [aria-label="Select emoji"] { /* Whether or not to hide the emoji picker. Use ctrl+e to open it otherwise. */
+     display: none;
+   }
+
+   [href="/store"] { /* hides the Discord Nitro button in the DM section */
+     display: none;
+   }
+
+   [href="/shop"] { /* does the same for the Discord Shop */
+     display: none;
+   }
+
+   [href="https://support.discord.com"] { /* Hides the "?" help button in the top right corner of Discord. */
+     display: none;
+   }
+
+   [class*=groupStart_]:has([class*=blockedSystemMessage]) { /* This snippet of code was added by 'codernerd' on Discord. It hides blocked messages on Discord. */
+     display: none;
+   }
+
+   [aria-label="Send a gift"] { /* Removes the gift button from the chatbar. */
+     display: none;
+  }
+
+  [class^=channelAppLauncher] { /* Removes the Activity launcher from the chatbar. */
+    display: none;
+  }
+}
+
+[class^=header] [class^=banner] { /* Controls the banner above a person's profile picture in DMs. By default, this rounds the top two corners by 15 CSS pixels. This snippet was provided by 'codernerd' on Discord. */
+  border-radius: 15px 15px 0px 0px;
+}
+
+[class^=outer]:has([class^=inner]) { /* Controls the background color of the user profile in DMs. Snippet made with assistance by 'codernerd' on Discord. */
+  background-color: var(--waffle-bg0);
+}
+
+[class^=container]:has(>[class^=membersWrap]) { /* Modified version of the member sidebar scroller from my old theme, revamped by 'codernerd' on Discord. */
+  min-width: 60px;
+  width: 60px;
+
+  transition-duration: 500ms;
+  transition-property: box-shadow, min-width, width;
+  z-index: 10;
+
+  height: 100%;
+  right: 0;
+}
+
+[class^=container]:has(>[class^=membersWrap]):hover {
+  min-width: 240px;
+  width: 240px;
+  box-shadow: 0 0 20px 10px #00000044;
+} /* End of the scrolling member bar. */
+
+[class^=chatContent] { /* Controls the background color for the main chat area. */
+  background-color: var(--waffle-bg0);
+}
+
+[class^=memberInner] { /* Background color for the members area in chat. */
+  background-color: var(--waffle-bg0);
+}
+
+[class^="membersWrap"]:has([class*="members"]) * { /* Removes strange lines from displaying between usernames on the member list. */
+  background-color: #000000 !important;
+}
+
+[class^=footer]:has([aria-label="Discover"]) { /* Hides the Discover button. */
+  display: none;
+}
+
+[class^=container]:has([class^=scroller]) { /* Area that contains the text channels. */
+  background-color: var(--waffle-bg0);
+}
+
+[aria-label="User area"] { /* Settings for the VC status area of chat. */
+  background-color: #000000 !important;
+}
+
+[class*=unreadMentionsBar] { /* Controls the new messages ping up in the top left corner when you get a DM or a notification in a server above you. */
+  background-color: #90B0C4;
+}
+
+[aria-label="Servers sidebar"] { /* Controls the background for the server sidebar menu. */
+  background-color: #000000 !important;
+}
+
+[class*="expandedFolderBackground"] { /* Controls the background of expanded folders. */
+  background-color: #181818;
+}
+
+[aria-label="Direct Messages"] { /* Background color for your DMs list. */
+  background-color: #000000;
+}
+
+[class^="scrollableContainer"] { /* Color for the chatbox. */
+  background-color: var(--chatbox-color);
+}
+
+[class*="mentioned"] { /* Settings for the bar that appears when someone mentions you. */
+  background-color: rgba(54, 73, 85, 0.75) !important;
+  display: block;
+  border: 1px ridge rgba(230, 244, 241, 0.4);
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(230, 244, 241, 0.4);
+  opacity: 0.7;
+}
+
+/* Start of codernerd's custom widget that moves the user profile picture, settings, deafen, and mute icons to the bottom left corner, the latter 2 of which expand upon hovering over the settings button. */
+/* move profile buttons to the left navbar */
+[aria-label="User area"] > [class^=container] {
+  background-color: var(--waffle-bg0);
+
+  position: fixed;
+  overflow: visible;
+
+  flex-direction: column-reverse;
+
+  padding: 0px;
+  margin: 0px;
+
+  gap: 5px;
+
+  left: 0%;
+  bottom: 0%;
+
+  align-items: center;
+
+  width: 72px;
+  height: max-content;
+
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+/* make guild nav bar smaller to fit the user icons on the left */
+[data-list-id="guildsnav"] > [class^=itemsContainer] {
+  height: 94%;
+}
+
+/* set padding for avatar highlight on hover */
+[aria-label="User area"] > [class^=container] > :nth-child(1) {
+  min-width: fit-content;
+  width: fit-content;
+
+  padding: 2px;
+  margin: 0;
+}
+
+/* hide status and name */
+[aria-label="User area"] > [class^=container] > :nth-child(1) > :not(:nth-child(1)) {
+  display: none;
+}
+
+/* set the user icons to vertical */
+[aria-label="User area"] > [class^=container] > :nth-child(2) {
+  flex-direction: column;
+
+  gap: 0px;
+}
+
+/* set all user icons to hidden besides the settings one */
+[aria-label="User area"] > [class^=container] > :nth-child(2) > :not(:last-child) {
+  opacity: 0%;
+  height: 0px;
+
+  transition: all 0.2s ease-in-out;
+}
+
+/* when hovering expand user icons */
+[aria-label="User area"] > [class^=container]:hover > :nth-child(2) > :not(:last-child) {
+  opacity: 100%;
+  display: flex;
+
+  margin-top: 10px;
+  height: 20px;
+}
+
+/* give the deafen icon a bit more spacing from the settings icon */
+[aria-label="User area"] > [class^=container]:hover > :nth-child(2) > :last-child {
+  margin-top: 5px;
+}
+/* End of codernerd's custom widget. */
+[aria-label="Channel header"] {
+  background-color: #000000 !important;
+}
+
+[class^="searchBar"] {
+  background-color: #000000;
+}
+
+[class^=icon] { /* Icon colors. */
+  color: var(--waffle-chalk) !important;
+}
+
+[class^="actionIcon"] { /* Also icon colors. */
+  color: var(--waffle-chalk);
+}
+
+[class^="linkButtonIcon"] { /* More icon colors. */
+  color: var(--waffle-chalk) !important;
+}
+
+[class^=name] { /* Also icon colors. */
+  color: var(--waffle-chalk);
+}
+
+[aria-label="User Settings"] { /* Color for the "User Settings" icon. */
+  color: var(--waffle-chalk) !important;
+}
+
+[aria-label="Deafen"] {  /* Color for the "Deafen" icon. */
+  color: var(--waffle-chalk) !important;
+}
+
+[class^="itemCard"] { /* More icons. */
+  background-color: #48667A!important;
+}
+
+[class^="text-sm"] { /* Icons. */
+  color: #000000;
+}
+
+[class^="defaultColor"] { /* Server name color. */
+  color: var(--waffle-chalk);
+}
+
+[class^="theme-dark"] { /* Changes the top bar on Discord, as well as a few other elements in the friends menu. */
+  background-color: var(--waffle-bg0) !important;
+}
+
+[class*="textContent"] {
+  color: var(--waffle-bg0);
+}
+
+[class^="text-sm"] {
+  color: var(--waffle-bg0);
+}
+
+[class^="searchBar"] {
+  background-color: var(--waffle-bg0);
+}
+
+[class^="typingDots"] { /* This and the setting below it control the typing dots ("Someone is typing..." text) */
+  color: var(--typing-indicator) !important;
+}
+
+[class*="dots"] {
+  color: var(--typing-indicator) !important;
+}
+
+[class^="jumpToPresentBar"] { /* Exactly what it sounds like. */
+  background-color: #484848 !important;
+}
+
+[class^="content"]:has([class*="container"]) {
+  background-color: var(--waffle-bg0) !important;
+}
+
+[class^="contentRegionScroller"] {
+  background-color: var(--waffle-bg0);
+}
+
+[class^="avatar"]:hover[class*="clickable"]:hover { /* Settings for a users' avatar in chat. This block of code is responsible for making the pfps in chat rotate 360 degrees, and increasing slightly in size when hovered over. */
+  filter: drop-shadow(0 0 8px);
+  color: var(--background-accent);
+  transform: scale(1.2) rotate(360deg);
+  transition: width 0.5s ease, height 0.5s ease, transform 0.5s ease;
+}
+
+[class^="avatar"][class*="clickable"] { /* This makes avatars glow in chat. */
+  filter: drop-shadow(0 0 5px);
+  color: var(--waffle-chalk);
+}
+
+[aria-label="My Account"] {
+  color: var(--waffle-chalk) !important;
+}
+
+[aria-label="User Settings"] > [class*=item]:not([aria-label="Log Out"]) { /* Every menu sub-item under the menu header text(s) mentioned below, such as "Profiles," "Social," etc. for User Settings, Vencord, etc. */
+  color: var(--waffle-chalk) !important;
+}
+
+[aria-label="User Settings"]>*>* { /* Controls all of the menu header text (and some button text(s)?) in the settings menu: "USER SETTINGS," "VENCORD," etc. */
+  color: #86759d;
+}
+
+#---new-messages-bar { /* This is the bar for the "NEW" bar that appears when there are new messages in chat. */
+  border-color: #86759D !important;
+}
+
+[class^="unreadPillCapStroke"] { /* This is the edge of the aforementioned bar. */
+  fill: var(--unread-pill) !important;
+  stroke: var(--unread-pill) !important;
+}
+
+[class*="endCap"] { /* This is also the same thing as above. These three are tied together because it gets weird when they aren't */
+  background-color: var(--unread-pill) !important;
+}
+
+[class^="newMessagesBar"] { /* This is the bar that says "<x> new messages since <some time>." */
+  background-color: var(--nmbar);
+}
+
+[aria-label="Channel header"] > [class^="upperContainer"] > [class^="children"]:after {
+  display: none;
+}
